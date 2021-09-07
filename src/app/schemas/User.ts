@@ -1,11 +1,11 @@
 import { Schema, model, Document } from 'mongoose'
-const bcrypt = require('bcryptjs')
+import * as bcrypt from 'bcryptjs'
 
 interface UserInterface extends Document {
     email?: string
     firstName?: string
     lastName?: string 
-    fullname(): string
+    password: String
 }
 
 const UserSchema = new Schema ({
