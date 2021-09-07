@@ -8,7 +8,7 @@ interface CommentInterface extends Document {
 }
 
 const CommentSchema = new Schema ({
-    id_class: {type: mongoose.Schema.Types.ObjectId, required: true},
+    id_class: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "Classe"},
     date_created: Date,
     comment: { type: String, required: true}
 }, {
