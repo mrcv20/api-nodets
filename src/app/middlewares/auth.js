@@ -5,15 +5,12 @@ module.exports = (req, res, next) => {
     // buscando header da request
     const authHeader = req.headers.authorization
     
-
-
     // verifying with conditionals is soft than process the token direct in the jwt
     if (!authHeader)
         return res.status(401).send({ error: 'no token provided'})
 
     const parts = authHeader.split(' ')
 
-    // Bearer qpoewikpqweokopkqwepkqwp
     if (!parts.length == 2 )
         return restz.status(401).send({ error: 'token error'})
 
