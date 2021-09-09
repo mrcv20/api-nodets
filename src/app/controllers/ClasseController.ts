@@ -63,6 +63,24 @@ class ClasseController {
         }
     }
 
+    public async put (req: Request, res: Response): Promise<Response> {
+        try {
+     
+            const classe = await Classe.findByIdAndUpdate(
+                req.body.id,
+                {
+                    name: req.body.name,
+                    description: req.body.description,
+                    video: req.body.video,
+                }, {new: true})
+
+                res.send({ classe })
+        } catch(err){
+            console.log(err)
+            return res.status(400).send({ error: "Error updating new classe"})
+        }
+    }
+
     public async delete (req: Request, res: Response): Promise<Response> {
         try {
             await Classe.findByIdAndRemove(req.params.classeId)
