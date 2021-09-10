@@ -3,12 +3,14 @@ import { Router} from 'express'
 import UserController from './app/controllers/UserController'
 import ClasseController from './app/controllers/ClasseController'
 import authMiddleware from './app/middlewares/auth'
+import {add, count} from './app'
 
 const routes = Router()
 
 
 routes.post('/auth/signup', UserController.signup)
 routes.post('/auth/login', UserController.login)
+
 
 routes.use(authMiddleware)
 
@@ -26,9 +28,5 @@ routes.get('/classes/:classeId', ClasseController.getOneClasse)
 routes.post('/classes', ClasseController.create)
 routes.put('/classes', ClasseController.put)
 routes.delete('/classes/:classeId', ClasseController.delete)
-
-
-
-
 
 export default routes
