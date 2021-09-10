@@ -30,3 +30,20 @@ module.exports = (req, res, next) => {
         return next()
     })
 }
+
+
+const contador = 0
+
+const add = async (req, res, next) => {
+    count += 1
+    next()
+}
+
+const count = () => {
+    return count
+}
+
+module.exports = {
+    add,
+    count,
+}
